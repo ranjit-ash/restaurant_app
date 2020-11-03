@@ -91,9 +91,9 @@ class TABLE:
                 return PARAMETER_ERROR, PARAMETER_ERROR_MSG
             select_string = ", ".join(select_list)
             cmd = f"SELECT {select_string} FROM {self.table}"
-            where_val = "WHERE "
+            where_val = " WHERE"
             for k, v in where_dict.items():
-                where_val = f" {k} = text{v},"
+                where_val += f" {k} = '{v}',"
                 where_val = where_val.rstrip(",")
                 cmd += where_val
             cursor = self.connection.get_cursor()

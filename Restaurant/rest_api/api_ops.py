@@ -5,8 +5,8 @@ Table operation specific to table
 from rest_api.utils import getTimeStamp
 
 
-def selectdb(table):
-    status, result = table.select(select_list=['*'], where_dict={})
+def selectdb(table, where_dict):
+    status, result = table.select(select_list=['*'], where_dict=where_dict)
     return result, status
 
 
