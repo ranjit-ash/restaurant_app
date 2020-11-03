@@ -28,7 +28,6 @@ def select(table):
     conn = connectdb()
     tb = tabledb(conn, table)
     query_parameters = request.args
-    print(f"---->{query_parameters}")
     result = selectdb(tb, query_parameters)
     conn.close()
     return result
