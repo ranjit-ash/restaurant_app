@@ -7,28 +7,6 @@ This project uses Python 3.7.
 
 ### Developer Environment Setup
 
-Create a virtualenv using the Python [venv module](https://docs.python.org/3/library/venv.html) or [pew](https://github.com/berdario/pew) (*P*ython *E*nvironment *W*rapper):
-
-```
-# Using venv
-python -m venv venv
-
-# The virtualenv won't be activated by default so activate it with:
-. venv/bin/activate
-```
-
-Now install all dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-To deactivate the virtualenv:
-
-```
-# Using venv
-deactivate
-```
 
 Kubernetes Environment for DB
 
@@ -50,23 +28,23 @@ If using PyCharm, configure the project with the following:
 Setting up DB [POSTGRES]
 ```
 # start postgress in kubernetes
-kubectl apply -f k8s/postgres/postgres_wl.yaml
+kubectl apply -f Restaurant/k8s/postgres/postgres_wl.yaml
 ```
 
 Setting up DB [PGADMIN]
 ```
 # start postgress in kubernetes
-kubectl apply -f k8s/pgadmin/pgadmin_wl.yaml
+kubectl apply -f /Restaurant/k8s/pgadmin/pgadmin_wl.yaml
 ```
 ### RestAPI setup
 Set PYTHONPATH
 ```
 # absolute resturant folder path
 # linux
-export=~/Restaurant/
+export=<base_path>/Restaurant/
 
 # windows
-set PYTHONPATH=D:\Restaurant\
+set PYTHONPATH=D:<base_path>\Restaurant\
 ```
 Update constant variable
  ```
@@ -110,8 +88,10 @@ Run all unit tests.
 
   ```
    
-  b. `GET`  /{table}/select `Get all rows`
-  
+  b.  i)`GET`  /{table}/select `Get all rows`
+     
+  ii)`GET`  /{table}/select?{key}={value} `Get all rows`
+
   Example-:
   
   ```
@@ -212,7 +192,7 @@ Run all unit tests.
     }
    ```
 
-  e. `DELETE` /<table>/delete `delete row`
+  e. `DELETE` /{table}/delete `delete row`
   
   Example-:
  
@@ -295,8 +275,8 @@ Run all unit tests.
     increse RestAPI calls
 
    ```
-   ## 3rd party Code
-   ###Code which does not belong to me
+   ## 3rd party code used
+   ### Code which does not belong to me
    ```
    Kubernetes code for postgres and pgadmin is from net
    ```
